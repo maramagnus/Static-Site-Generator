@@ -35,8 +35,15 @@ class LeafNode(HTMLNode):
         return f"LeafNode({self.tag}, {self.value}, {self.props})"
     
 class ParentNode(HTMLNode):
-    def __init__(self, tag: str, children: list[object], props: dict[str: str]) -> None:
-        super().__init__(tag, None, children, props=None)
+    def __init__(self, tag: str, children: list[object], props: dict[str: str] = None) -> None:
+        super().__init__(tag, None, children, props)
 
     def to_html(self) -> None:
-        pass
+        if self.tag is None:
+            raise ValueError("HTML error: No tag")
+        if self.children is None:
+            return ValueError("HTML error: No child nodes")
+        formatted_children = ""
+        for child in self.children:
+            formatted_children += f"<{child.tag}>{child.value}</{child.tag}>"
+        return formatted_children
