@@ -45,5 +45,5 @@ class ParentNode(HTMLNode):
             return ValueError("HTML error: No child nodes")
         formatted_children = ""
         for child in self.children:
-            formatted_children += f"<{child.tag}>{child.value}</{child.tag}>"
-        return formatted_children
+            formatted_children += child.to_html()
+        return f"<{self.tag}>{formatted_children}</{self.tag}>"
