@@ -1,4 +1,5 @@
 from typing import Self
+from htmlnode import LeafNode
 
 class TextNode:
     def __init__(self, text: str, text_type: str, url: str = None) -> None:
