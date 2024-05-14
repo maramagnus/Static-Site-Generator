@@ -1,10 +1,10 @@
 from typing import Self
 
 class TextNode:
-    def __init__(self, text: str, text_type: str, url = None) -> None:
+    def __init__(self, text: str, text_type: str, url: str = None) -> None:
         self.text: str = text
         self.text_type: str = text_type
-        self.url = url
+        self.url: str = url
 
     def __eq__(self, other: Self) -> bool:
         return self.__dict__ == other.__dict__

@@ -8,13 +8,14 @@ def text_node_to_html_node(text_node: TextNode):
     if text_node.text_type == "bold":
         return LeafNode("b", text_node.text,)
     if text_node.text_type == "italic":
-        pass
+        return LeafNode("i", text_node.text,)
     if text_node.text_type == "code":
-        pass
+        return LeafNode("code", text_node.text,)
     if text_node.text_type == "link":
-        pass
+        return LeafNode("a", text_node.text, {"href": text_node.url})
     if text_node.text_type == "image":
-        pass
+        return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
+    raise Exception("Invalid Text Type")
 
     
 def main():
