@@ -1,6 +1,22 @@
 from textnode import TextNode
 from htmlnode import HTMLNode
+from htmlnode import LeafNode
 
+def text_node_to_html_node(text_node: TextNode):
+    if text_node.text_type == "text":
+        return LeafNode(None, text_node.text,)
+    if text_node.text_type == "bold":
+        return LeafNode("b", text_node.text,)
+    if text_node.text_type == "italic":
+        pass
+    if text_node.text_type == "code":
+        pass
+    if text_node.text_type == "link":
+        pass
+    if text_node.text_type == "image":
+        pass
+
+    
 def main():
     node_tester1 = TextNode("I like turtles", "italic", "https://boot.dev")
     node_tester2 = TextNode("I like turtles", "bold", "https://google.com")
